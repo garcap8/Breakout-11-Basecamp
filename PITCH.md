@@ -12,7 +12,7 @@ Lever: <cost | speed | intelligence>
 
 ## Priya asked
 
-Costs:
-Wrong:
-Runs it:
-Left out:
+Costs: No $/contact figure yet -- what we have is token counts, not dollars: 12,495 avg input tokens per resolved ticket (Build 1 baseline), 2,937 tokens/turn for the tool list. Turning that into a real $/contact number needs the caching fix (0 cache tokens used today) and a bench run first.
+Wrong: No hallucinated flight facts caught -- every claim in the final answer traces to a tool call on the wire (lookup_booking -> get_flight_status -> check_policy). The known "wrong" is a missing behavior, not a false fact: the abusive-message ticket (R8KD3F) gets a calm answer with no tone gate at all.
+Runs it: [needs a team decision -- who at Larkspur or on our side owns this in June, and what the handoff/runbook looks like. Not something the code can answer.]
+Left out: Groups, partner segments, unaccompanied minors, and refund requests are all escalated to a human rather than automated. Tone/de-escalation handling for abusive messages hasn't been built yet (Build 4).
