@@ -75,6 +75,9 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 WORKSHOP = os.path.join(HERE, ".workshop")
 CASES_PATH = os.path.join(HERE, "evals", "cases.json")
 EXAMPLE_PATH = os.path.join(HERE, "evals", "cases.example.json")

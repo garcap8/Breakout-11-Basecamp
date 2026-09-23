@@ -37,6 +37,9 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 import agent  # noqa: E402
 from support import LAST, DEFAULT_LAST_NAME, DEFAULT_PNR, STAGE1_TASKS  # noqa: E402
 

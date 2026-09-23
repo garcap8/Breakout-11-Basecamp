@@ -32,6 +32,9 @@ from typing import Callable, List, Optional
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 SHARED_SECRET = b"larkspur-basecamp-reference-architecture"
 # Where a banked code goes. The gate mints it on this laptop; the site is where
 # the team's progress becomes visible to the team.

@@ -181,7 +181,7 @@ def ahead_behind(ref):
 def load_profile():
     """Read-only view of verify.py's own file. Same shape, never written here."""
     try:
-        with open(PROFILE_PATH) as f:
+        with open(PROFILE_PATH, encoding="utf-8") as f:
             return json.load(f)
     except Exception:  # noqa: BLE001 - a missing or half-written file means nothing banked
         return {"name": None, "banked": {}, "caught_up": [], "banked_from_checkpoint": []}
@@ -573,9 +573,9 @@ def save_my_agent(gate):
     while os.path.exists(path):  # same second, same block: keep both, in order
         path = os.path.join(MINE_DIR, "agent-%s-%s-%d.py" % (block, stamp, n))
         n += 1
-    with open(src) as fh:
+    with open(src, encoding="utf-8") as fh:
         body = fh.read()
-    with open(path, "w") as fh:
+    with open(path, "w", encoding="utf-8") as fh:
         fh.write(body)
     return path
 

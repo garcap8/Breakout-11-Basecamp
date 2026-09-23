@@ -56,6 +56,9 @@ import uuid
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 WORKSHOP = os.path.join(HERE, ".workshop")
 
 # Larkspur's disruption chat volume, for the at-volume line. ~19M pax/yr with
